@@ -1,7 +1,6 @@
 <?php
 include("db/conexao.php")
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +29,12 @@ include("db/conexao.php")
                         case 'contatos':
                             include("paginas/contatos/contatos.php");
                             break;
+                        case 'cad-contato':
+                            include("paginas/contatos/cad-contato.php");
+                            break;
+                        case 'inserir-contato':
+                            include("paginas/contatos/inserir-contato.php");
+                            break;  
                         case 'tarefas':
                             include("paginas/tarefas/tarefas.php");
                             break;
