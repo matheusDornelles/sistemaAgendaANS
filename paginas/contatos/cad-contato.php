@@ -16,17 +16,18 @@
             <input type="text" name="telefoneContato">
         </div>
         <div>
+            <label for="enderecoContato">Endereço</label>
+            <input type="text" name="enderecoContato">
+        </div>
+        <div>
             <label for="sexoContato">Sexo</label>
             <input type="text" name="sexoContato">
         </div>
         <div>
             <label for="dataContato">Data de Nascimento</label>
-            <input type="date" name="dataContato">
+            <input type="date" name="dataNascContato">
         </div>
-        <div>
-            <label for="telefoneContato">Telefone</label>
-            <input type="text" name="telefoneContato">
-        </div>
+
         <input type="submit" value="Adionar" name="btnAdicionar">
     </form>
 </div>

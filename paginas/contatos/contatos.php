@@ -12,6 +12,7 @@
             <th>Nome</th>
             <th>E-Mail</th>
             <th>Telefone</th>
+            <th>Endereço</th>
             <th>Sexo</th>
             <th>Data de Nascimento</th>
         </tr>
@@ -25,12 +26,13 @@
        
         ?>
         <tr>
-            <td><?=$dados["idContato"]   ?> </td>
-            <td><?=$dados["nomeContato"] ?> </td>
-            <td><?=$dados["email"]       ?> </td>
-            <td><?=$dados["telefone"]    ?> </td>
-            <td>Masculino</td>
-            <td>01/02/1991</td>
+            <td><?=$dados["idContato"]          ?> </td>
+            <td><?=$dados["nomeContato"]        ?> </td>
+            <td><?=$dados["emailContato"]       ?> </td>
+            <td><?=$dados["telefoneContato"]    ?> </td>
+            <td><?=$dados["enderecoContato"]    ?> </td>
+            <td><?=$dados["sexoContato"]        ?> </td>
+            <td><?=$dados["dataNascContato"]    ?> </td>
         </tr>
         <?php  
         }
