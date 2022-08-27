@@ -1,3 +1,7 @@
+<?php
+include("db/conexao.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +20,7 @@
         <a href = "index.php?menuop=eventos">Eventos</a>
     <header>
         <main>
+            <hr>
             <?php 
                 $menuop = (isset($_GET["menuop"]))?$_GET["menuop"]:"home";
                     switch ($menuop) {
@@ -26,7 +31,7 @@
                             include("paginas/contatos/contatos.php");
                             break;
                         case 'tarefas':
-                            include("paginas/tarefas/tarefasphp");
+                            include("paginas/tarefas/tarefas.php");
                             break;
                         case 'eventos':
                             include("paginas/eventos/eventos.php"); 
@@ -35,6 +40,7 @@
                             break;
                     }
             ?>
+            
         </main>
 </body>
 </html>
