@@ -34,7 +34,13 @@ include("db/conexao.php")
                             break;
                         case 'inserir-contato':
                             include("paginas/contatos/inserir-contato.php");
-                            break;  
+                            break;
+                        case 'editar-contato':
+                            include("paginas/contatos/editar-contato.php");
+                            break;
+                        case 'atualizar-contato':
+                            include("paginas/contatos/atualizar-contato.php");
+                            break;    
                         case 'tarefas':
                             include("paginas/tarefas/tarefas.php");
                             break;
