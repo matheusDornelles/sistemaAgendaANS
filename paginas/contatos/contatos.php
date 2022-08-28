@@ -4,7 +4,15 @@
 <div>
     <a href="index.php?menuop=cad-contato">Novo Contato</a>
 </div>
-
+<div>
+    <form action="index.php?menuop=contatos" method="post">
+        <div>
+            <input  type="text" name="txt_pesquisa">
+            <button type="submit">Pesquisar</button>
+        </div>
+       
+    </form>
+</div>
 <table border = "1">
     <thead>
         <tr>
@@ -16,12 +24,33 @@
             <th>Sexo</th>
             <th>Data de Nascimento</th>
             <th>Edição</th>
+            <th>Excluir</th>
 
         </tr>
     </thead>
     <tbody>
-        <?php 
-        $sql = "SELECT * FROM tbcontatos";
+        <?php
+        $txt_pesquisa = (isset($_POST["txt_pesquisa"]))?$_POST["txt_pesquisa"]:"";
+        
+        $sql = "SELECT 
+            idContato,
+            upper(nomeContato) AS nomeContato,
+            lower(emailContato) AS emailContato,
+            telefoneContato,
+            upper(enderecoContato) AS enderecoContato,
+            CASE
+                WHEN sexoContato='F' THEN 'FEMININO'
+                WHEN sexoContato='M' THEN 'MASCULINO'
+            ELSE
+                'NÃO ESPECIFICADO'
+            END AS sexoContato,
+            DATE_FORMAT(dataNascContato, '%d/%m/%Y') AS dataNascContato,
+            flagFavoritoContato  
+            FROM tbcontatos 
+            WHERE 
+            idContato = '{$txt_pesquisa}' or 
+            nomeContato LIKE '%{$txt_pesquisa}%' 
+            ";
         $rs  =  mysqli_query($conexao,$sql) or die("Erro ao executar a consulta!" . mysqli_error($conexao));
         while ($dados = mysqli_fetch_assoc($rs) ){   
         ?>
@@ -34,6 +63,7 @@
             <td><?=$dados["sexoContato"]        ?> </td>
             <td><?=$dados["dataNascContato"]    ?> </td>
             <td><a class="btn btn-outline-warning btn-sm" href="index.php?menuop=editar-contato&idContato=<?=$dados['idContato']?>">Editar</a></td>
+            <td><a class="btn btn-outline-warning btn-sm" href="index.php?menuop=excluir-contato&idContato=<?=$dados['idContato']?>">Excluir</a></td>
             
         </tr>
         <?php  
